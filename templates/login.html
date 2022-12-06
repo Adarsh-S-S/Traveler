@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Classic Login Form Example</title>
+  <link href="https://fonts.googleapis.com/css?family=Assistant:400,700" rel="stylesheet"><link rel="stylesheet" href="{% static 'css/stylelogin.css' %}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<form action="{% url 'loginpage' %}" method="post">
+    {% csrf_token %}
+<section class='login' id='login'>
+  <div class='head'>
+  <h1 class='company'>Universe Explorer</h1>
+  </div>
+  <p class='msg'>Welcome back</p>
+  <div class='form'>
+    <form>
+  <input type="text" placeholder='Username' class='text' id='username' required name="uname"><br>
+  <input type="password" placeholder='••••••••••••••' class='password' name="pass"><br>
+  <button class='btn-login' id='do-login'>Login</button><br><br>
+  <font color="red">{{msg}}</font>
+    </form>
+  </div>
+</section>
+</form>
+
+</body>
+</html>
