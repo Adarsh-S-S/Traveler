@@ -2,10 +2,12 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib import auth
 from django.contrib.auth.models import User
+from .models import TourPackage
 
 
 def index(request):
-    return render(request,"index.html")
+    data=TourPackage.objects.all()
+    return render(request,"index.html",{"pro":data})
 
 
 def login(request):
@@ -48,3 +50,10 @@ def register(request):
             return redirect("/")
     else:
         return render(request,"register.html")
+
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect("/")
+
