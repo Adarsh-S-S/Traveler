@@ -15,3 +15,5 @@ class TourPackage(models.Model):
     desc=models.TextField()
     price=models.TextField()
     rating=models.DecimalField(max_digits=5, decimal_places=2)
+
+

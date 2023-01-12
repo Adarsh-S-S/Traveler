@@ -6,7 +6,13 @@ from .models import TourPackage
 
 
 def index(request):
-    data=TourPackage.objects.all()
+    if request.method == "POST":
+        search=request.POST["msg"]
+        data=TourPackage.objects.filter(name__istartswith=search)
+    else:
+        data=TourPackage.objects.all()
+
+
     return render(request,"index.html",{"pro":data})
 
 
